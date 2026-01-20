@@ -116,9 +116,9 @@
                     <p class="text-lg md:text-xl mb-8 max-w-lg">
                         La revolución financiera ha llegado a Argentina. Descubre cómo las criptomonedas están transformando la economía local y cómo puedes beneficiarte.
                     </p>
-                    <!-- WhatsApp按钮 (阿根廷西班牙语) -->
+                    <!-- WhatsApp按钮 (阿根廷西班牙语) - 添加ID用于事件追踪 -->
                     <div class="flex justify-center sm:justify-start">
-                        <a href="https://wa.me/+5491112345678" target="_blank" class="bg-white text-primary font-medium py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors text-center flex items-center space-x-2">
+                        <a href="https://wa.me/+5491112345678" target="_blank" id="whatsappButton1" class="bg-white text-primary font-medium py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors text-center flex items-center space-x-2">
                             <i class="fa-brands fa-whatsapp"></i>
                             <span>Si estás interesado, contactame por WhatsApp</span>
                         </a>
@@ -336,9 +336,9 @@
                 </p>
             </div>
             
-            <!-- 仅保留WhatsApp按钮，移除表单 -->
+            <!-- 仅保留WhatsApp按钮，移除表单 - 添加ID用于事件追踪 -->
             <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8 flex justify-center">
-                <a href="https://wa.me/+5491112345678" target="_blank" class="w-full bg-whatsapp text-white font-medium py-4 px-8 rounded-lg hover:bg-whatsapp/90 transition-colors text-center flex items-center justify-center space-x-2 text-lg">
+                <a href="https://wa.me/+5491112345678" target="_blank" id="whatsappButton2" class="w-full bg-whatsapp text-white font-medium py-4 px-8 rounded-lg hover:bg-whatsapp/90 transition-colors text-center flex items-center justify-center space-x-2 text-lg">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                     <span>Si estás interesado, contactame por WhatsApp</span>
                 </a>
@@ -368,7 +368,7 @@
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/+5491112345678" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://wa.me/+5491112345678" target="_blank" id="whatsappButton3" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">
@@ -473,6 +473,37 @@
                 });
             });
         });
+
+        // ====== Facebook Pixel 按钮点击事件追踪 ======
+        // 追踪Hero区WhatsApp按钮
+        document.getElementById('whatsappButton1').addEventListener('click', function() {
+            fbq('track', 'Contact', {
+                content_name: 'WhatsApp Button - Hero Section',
+                content_category: 'Contact',
+                medium: 'WhatsApp',
+                country: 'Argentina'
+            });
+        }, false);
+
+        // 追踪Contacto区WhatsApp按钮
+        document.getElementById('whatsappButton2').addEventListener('click', function() {
+            fbq('track', 'Contact', {
+                content_name: 'WhatsApp Button - Contact Section',
+                content_category: 'Contact',
+                medium: 'WhatsApp',
+                country: 'Argentina'
+            });
+        }, false);
+
+        // 追踪Footer区WhatsApp按钮
+        document.getElementById('whatsappButton3').addEventListener('click', function() {
+            fbq('track', 'Contact', {
+                content_name: 'WhatsApp Button - Footer',
+                content_category: 'Contact',
+                medium: 'WhatsApp',
+                country: 'Argentina'
+            });
+        }, false);
     </script>
 </body>
 </html>
